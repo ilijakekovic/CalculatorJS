@@ -1,0 +1,34 @@
+body{
+    background-color: #191919;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 3 columns with equal width */
+    grid-gap: 10px; /* gap between grid items */
+}
+
+.item {
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+.wrapper{
+    margin: 0.5vh 40px;
+}
+.return{
+    grid-column: span 4;
+    color: red; /* change !!! */
+    align-items: center;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 5px;
+    height: 7vh;
+}
+.marginTop{
+    margin: 3vh;
+}
+.numButton {
+    height: 7vh;
+    grid-column: span 1;
+    width: 100%;
+}
