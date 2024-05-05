@@ -13,7 +13,7 @@ body{
     padding: 10px;
 }
 .wrapper{
-    margin: 3vh 40px;
+    margin: 3vh 5%;
 }
 .return{
     grid-column: span 4;
@@ -62,3 +62,26 @@ body{
     background-color: #404040;
     color: white;
 }
+.historyContainer{
+    grid-column: span 4;
+    color: #191919;
+    text-align: right;
+    background-color: #ffffff;
+    border-radius: 5px;
+    height: 7vh;
+    background-color: #B3B3B3;
+    padding-right: 5%;
+    font-weight: bolder;
+    font-size: 110%;
+    margin: 1vh 5%;
+}
+
+@media screen and (min-width: 650px) {
+    .wrapper{
+        margin: 3vh 30%;
+    }
+    .historyContainer{
+        margin: 1vh 30%;
+    }
+}
+

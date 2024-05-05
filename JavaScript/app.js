@@ -30,33 +30,32 @@ let result = 0;
 root.addEventListener('click', function() {
     timeForNum1 = false;
     equation = "root";
-    console.log(timeForNum1);
+    output.innerHTML = DIsplayOutput()
 });
 percentage.addEventListener('click', function() {
     timeForNum1 = false;
     equation = "percentage";
-    console.log(timeForNum1);
+    output.innerHTML = DIsplayOutput()
 });
 division.addEventListener('click', function() {
     timeForNum1 = false;
     equation = "division";
-    console.log(timeForNum1);
+    output.innerHTML = DIsplayOutput()
 });
 multiply.addEventListener('click', function() {
     timeForNum1 = false;
     equation = "multiply";
-    console.log(timeForNum1);
+    output.innerHTML = DIsplayOutput()
 });
 subtract.addEventListener('click', function() {
     timeForNum1 = false;
     equation = "subtract";
-    console.log(timeForNum1);
+    output.innerHTML = DIsplayOutput()
 });
 add.addEventListener('click', function() {
     timeForNum1 = false;
     equation = "add";
-    console.log(equation);
-    console.log(timeForNum1);
+    output.innerHTML = DIsplayOutput()
 });
 
 let number1 = "";
@@ -69,6 +68,7 @@ num1.addEventListener('click', function() {
     else{
         number2 += "1";
     }
+    output.innerHTML = DIsplayOutput()
 });
 num2.addEventListener('click', function() {
     if(timeForNum1){
@@ -79,6 +79,7 @@ num2.addEventListener('click', function() {
         number2 += "2";
         console.log(`number2: ${number2}`);
     }
+    output.innerHTML = DIsplayOutput()
 });
 num3.addEventListener('click', function() {
     if(timeForNum1){
@@ -87,6 +88,7 @@ num3.addEventListener('click', function() {
     else{
         number2 += "3";
     }
+    output.innerHTML = DIsplayOutput()
 });
 num4.addEventListener('click', function() {
     if(timeForNum1){
@@ -95,6 +97,7 @@ num4.addEventListener('click', function() {
     else{
         number2 += "4";
     }
+    output.innerHTML = DIsplayOutput()
 });
 num5.addEventListener('click', function() {
     if(timeForNum1){
@@ -103,6 +106,7 @@ num5.addEventListener('click', function() {
     else{
         number2 += "5";
     }
+    output.innerHTML = DIsplayOutput()
 });
 num6.addEventListener('click', function() {
     if(timeForNum1){
@@ -111,6 +115,7 @@ num6.addEventListener('click', function() {
     else{
         number2 += "6";
     }
+    output.innerHTML = DIsplayOutput()
 });
 num7.addEventListener('click', function() {
     if(timeForNum1){
@@ -119,6 +124,7 @@ num7.addEventListener('click', function() {
     else{
         number2 += "7";
     }
+    output.innerHTML = DIsplayOutput()
 });
 num8.addEventListener('click', function() {
     if(timeForNum1){
@@ -127,6 +133,7 @@ num8.addEventListener('click', function() {
     else{
         number2 += "8";
     }
+    output.innerHTML = DIsplayOutput()
 });
 num9.addEventListener('click', function() {
     if(timeForNum1){
@@ -135,6 +142,7 @@ num9.addEventListener('click', function() {
     else{
         number2 += "9";
     }
+    output.innerHTML = DIsplayOutput()
 });
 num0.addEventListener('click', function() {
     if(timeForNum1){
@@ -143,13 +151,12 @@ num0.addEventListener('click', function() {
     else{
         number2 += "0";
     }
+    output.innerHTML = DIsplayOutput()
 });
 
 AC.addEventListener('click', function() {
-    number1 = "";
-    number2 = "";
-    timeForNum1 = true;
-    console.log(timeForNum1);
+    Reset();
+    output.innerHTML = "";
 });
 let number1Int = 0;
 let number2Int = 0;
@@ -174,11 +181,13 @@ equals.addEventListener('click', function() {
         result = (number1Int - number2Int);
         console.log('subtract');
     }
-    else if(equation == "add"){
+    else if(equation === "add"){
         result = (number1Int + number2Int);
         console.log('add');
     }
-    console.log(result);
+    console.log('equals failed');
+    output.innerHTML = result;
+    Reset();
 });
 
 root.addEventListener('click', function() {
@@ -186,3 +195,40 @@ root.addEventListener('click', function() {
 });
 
 output.innerHTML = result;
+
+function DIsplayOutput(){
+    return `${number1} ${OutputSign()} ${number2}`;
+}
+
+function OutputSign(){
+    switch (equation) {
+        case "root":
+            return "√";
+            break;
+        case "percentage":
+            return "%";
+            break;
+        case "division":
+            return "/";
+            break;
+        case "multiply":
+            return "*";
+            break;
+        case "subtract":
+            return "-";
+            break;
+        case "add":
+            return "+";
+            break;
+        default:
+            return "";
+            break;
+    }
+}
+
+function Reset(){
+    number1 = "";
+    number2 = "";
+    timeForNum1 = true;
+    result = 0;
+}
