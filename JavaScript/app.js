@@ -131,4 +131,7 @@ AC.addEventListener('click', function() {
     timeForNum1 = true;
     console.log(timeForNum1);
 });
+let number1Int = 0;
+let number2Int = 0;
 
+equal

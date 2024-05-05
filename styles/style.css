@@ -18,17 +18,20 @@ body{
 .return{
     grid-column: span 4;
     color: red; /* change !!! */
-    align-items: center;
-    text-align: center;
+    text-align: right;
     background-color: #ffffff;
     border-radius: 5px;
     height: 7vh;
     background-color: #B3B3B3;
+    padding-right: 5%;
+    font-weight: bolder;
+    font-size: 110%;
 }
 .marginTop{
     margin: 10vh;
 }
 .numButton {
+    color: white;
     height: 7vh;
     grid-column: span 1;
     width: 100%;
@@ -48,16 +51,14 @@ body{
 }
 
 #equals{
-    grid-column: span 1;
+    margin-top: 1vh;
+    grid-column: span 2;
     background-color: #BC13FE;
     color: white;
 }
 #history{
+    margin-top: 1vh;
     grid-column: span 2;
     background-color: #404040;
     color: white;
-}
-
-.test{
-    color: red;
 }
