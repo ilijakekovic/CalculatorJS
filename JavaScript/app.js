@@ -26,6 +26,7 @@ const num0= $('zero');
 let timeForNum1 = true;
 let equation = "";
 let result = 0;
+let history = [];
 
 root.addEventListener('click', function() {
     timeForNum1 = false;
@@ -73,11 +74,9 @@ num1.addEventListener('click', function() {
 num2.addEventListener('click', function() {
     if(timeForNum1){
         number1 += "2";
-        console.log(number1);
     }
     else{
         number2 += "2";
-        console.log(`number2: ${number2}`);
     }
     output.innerHTML = DIsplayOutput()
 });
@@ -187,6 +186,7 @@ equals.addEventListener('click', function() {
     }
     console.log('equals failed');
     output.innerHTML = result;
+    AddToHistory();
     Reset();
 });
 
@@ -231,4 +231,13 @@ function Reset(){
     number2 = "";
     timeForNum1 = true;
     result = 0;
+}
+
+function AddToHistory(){
+    history.push(`${number1} ${OutputSign()} ${number2} = ${result}`);
+    console.log(history);
+}
+
+for (let i = 0; i < history.length; i++) {
+    
 }
