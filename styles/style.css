@@ -17,7 +17,7 @@ body{
 }
 .return{
     grid-column: span 4;
-    color: red; /* change !!! */
+    color: #191919;
     text-align: right;
     background-color: #ffffff;
     border-radius: 5px;
@@ -56,7 +56,7 @@ body{
     background-color: #BC13FE;
     color: white;
 }
-#history{
+#zero{
     margin-top: 1vh;
     grid-column: span 2;
     background-color: #404040;
