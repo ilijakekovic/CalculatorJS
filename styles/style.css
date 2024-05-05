@@ -42,3 +42,22 @@ body{
     transition: 0.2s ease-in-out;
     border: 2px solid #BC13FE;
 }
+.numButton:active{
+    background-color: #BC13FE;
+    color: white;
+}
+
+#equals{
+    grid-column: span 1;
+    background-color: #BC13FE;
+    color: white;
+}
+#history{
+    grid-column: span 2;
+    background-color: #404040;
+    color: white;
+}
+
+.test{
+    color: red;
+}
