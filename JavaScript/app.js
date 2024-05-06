@@ -12,6 +12,7 @@ const subtract = $('numSubtraction');
 const add = $('numAddition');
 const equals = $('equals');
 const output = $('returnOutput');
+const historyContainer = $('historyContainer');
 const num1 = $('num1');
 const num2= $('num2');
 const num3= $('num3');
@@ -161,33 +162,39 @@ let number1Int = 0;
 let number2Int = 0;
 
 equals.addEventListener('click', function() {
-    console.log(`equals click`);
-    number1Int = parseInt(number1);
-    number2Int = parseInt(number2);
-    if(equation == "percentage"){
-        result = (number1Int / 100);
-        console.log('percentage');
+    if(number1 != "" && number2 != ""){
+        console.log(`equals click`);
+        number1Int = parseInt(number1);
+        number2Int = parseInt(number2);
+        if(equation == "percentage"){
+            result = (number1Int / 100);
+            console.log('percentage');
+        }
+        else if(equation == "division"){
+            result = (number1Int / number2Int);
+            console.log('division');
+        }
+        else if(equation == "multiply"){
+            result = (number1Int * number2Int);
+            console.log('multiply');
+        }
+        else if(equation == "subtract"){
+            result = (number1Int - number2Int);
+            console.log('subtract');
+        }
+        else if(equation === "add"){
+            result = (number1Int + number2Int);
+            console.log('add');
+        }
+        console.log('equals failed');
+        output.innerHTML = result;
+        AddToHistory();
+        number1 = result.toString();
+        DisplayHistory();
+        Reset();
+    } else {
+        output.innerHTML = "Please enter a number";
     }
-    else if(equation == "division"){
-        result = (number1Int / number2Int);
-        console.log('division');
-    }
-    else if(equation == "multiply"){
-        result = (number1Int * number2Int);
-        console.log('multiply');
-    }
-    else if(equation == "subtract"){
-        result = (number1Int - number2Int);
-        console.log('subtract');
-    }
-    else if(equation === "add"){
-        result = (number1Int + number2Int);
-        console.log('add');
-    }
-    console.log('equals failed');
-    output.innerHTML = result;
-    AddToHistory();
-    Reset();
 });
 
 root.addEventListener('click', function() {
@@ -227,17 +234,38 @@ function OutputSign(){
 }
 
 function Reset(){
-    number1 = "";
     number2 = "";
     timeForNum1 = true;
     result = 0;
 }
 
 function AddToHistory(){
-    history.push(`${number1} ${OutputSign()} ${number2} = ${result}`);
+    // Check if the array is in local storage
+    let storedHistory = localStorage.getItem('history');
+    if (storedHistory) {
+        // If the array exists in local storage, update the existing array
+        history = JSON.parse(storedHistory);
+    } else {
+        // If the array does not exist in local storage, set it
+        localStorage.setItem('history', JSON.stringify(history));
+    }
+
+    // Push the new history entry to the array
+    history.unshift(`${number1} ${OutputSign()} ${number2} = ${result}`);
+
+    // Update the local storage with the updated array
+    localStorage.setItem('history', JSON.stringify(history));
+
     console.log(history);
 }
+window.onload = function() {
+    history = JSON.parse(localStorage.getItem('history'));
+    DisplayHistory();
+};
 
-for (let i = 0; i < history.length; i++) {
-    
+function DisplayHistory(){
+    historyContainer.innerHTML = "";
+    history.forEach(element => {
+        historyContainer.innerHTML += `<p id="historyOutput">${element}</p>`;
+    });
 }
