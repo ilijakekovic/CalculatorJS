@@ -155,6 +155,8 @@ num0.addEventListener('click', function() {
 });
 
 AC.addEventListener('click', function() {
+    number1 = "";
+    result = 0;
     Reset();
     output.innerHTML = "";
 });
